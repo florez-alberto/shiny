@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Body Mass Index Application</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Body Mass Index Application">
+  <meta name="author" content="Alberto Florez">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Body Mass Index Application</h1>
+    <h2>Made for Developing Data Products - Coursera Course</h2>
+    <p>Alberto Florez<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Body Mass Index (BMI)</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>First published in 1972, its been the standard for body fat measure.</p></li>
+<li><p>Although not perfect, due to its simplicity its widely used and even recommended by the WHO since 1980.  </p></li>
+<li><p>The BMI is universally expressed in kg/m2, resulting from mass in kilograms and height in meters.  </p></li>
+<li><p>BMI ranges from underweight to obese and is commonly employed among children and adults to predict health outcomes. </p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Limitations</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>BMI is proportional to mass and inversely proportional to the square of the height.</li>
+<li>Taller individuals tend to have a higher BMI compared to the body fat level, and smaller individuals tend to have narrower normal weight frames.</li>
+<li>BMI categories are generally regarded as a satisfactory tool for measuring whether sedentary individuals are underweight, overweight or obese with various exceptions, such as: athletes, children, the elderly, and the infirm.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Some information about the shiny app</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>The shiny app is a very simple calculator provided with the function<br></li>
+</ul>
+
+<pre><code class="r">BodyMass &lt;- function(weight, height){
+  weight/height^2
+}
+</code></pre>
+
+<p>Also, with avery simple classifier to put given BMI into WHO categories  </p>
+
+<pre><code class="r">Categ &lt;- function(x) {
+  if (x &lt;= 15) {
+    print (&quot;Very severely underweight&quot;)
+  }
+  if (15 &lt; x &amp; x &lt;= 16){
+    print (&quot;severely underweight&quot;)
+  }
+  if(16 &lt; x &amp; x &lt;= 18.5){
+    print(&quot;underweight&quot;)
+  }
+  if (18.5&lt; x &amp; x&lt;= 25){
+    print (&quot;Normal (healthy weight)&quot;)
+    }
+  if (25&lt; x &amp; x &lt;= 30){
+    print  (&quot;overweight&quot;)
+  }
+  if (30&lt; x &amp; x &lt;= 35){
+    print  (&quot;Obese Class I (Moderately obese)&quot;)
+  }
+  if (35&lt; x &amp; x &lt;= 40){
+    print  (&quot;Obese Class II (Severely obese)&quot;)
+  }
+  if (40&lt; x ){
+    print  (&quot;Obese Class III (Very severely obese)&quot;)
+  }
+
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Example</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The user inputs its height and weight (in meters and kilograms) and the BMI and category are automatically calculated by the app.</p>
+
+<pre><code class="r">example &lt;- BodyMass (70, 1.70)
+print(example)
+</code></pre>
+
+<pre><code>## [1] 24.22145
+</code></pre>
+
+<pre><code class="r">Categ(example)
+</code></pre>
+
+<pre><code>## [1] &quot;Normal (healthy weight)&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Body Mass Index (BMI)'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Limitations'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Some information about the shiny app'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Example'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='NA'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
